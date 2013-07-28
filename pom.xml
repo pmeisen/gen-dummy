@@ -5,7 +5,7 @@
   
   <groupId>net.meisen.general</groupId>
   <artifactId>net-meisen-general-gen-dummy</artifactId>
-  <version>1.0.0</version>
+  <version>TRUNK</version>
   <name>gen-dummy</name>
   <description>Dummy class which is only needed for testing purposes</description>
   <packaging>jar</packaging>
