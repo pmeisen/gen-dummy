@@ -6,10 +6,10 @@
   - https://github.com/pmeisen/ant-processenabler
   - git://github.com/pmeisen/ant-processenabler.git
   The fully packed 'application' is available here;
-  - http://ant-processenabler.meisen.net/downloads/ant-processenabler-1.0.0-SNAPSHOT.zip
+  - http://ant-processenabler.meisen.net/downloads/ant-processenabler-TRUNK-SNAPSHOT.zip
   -->
-<project name="gen-dummy" default="assemble">	
-	<import file="${ant.home}\resources\ant\library_main.xml"/>
+<project name="gen-dummy" default="deploy">	
+  <import file="${ant.home}\resources\ant\library_main.xml"/>
   
   <macrodef name="resourceMapper">
     <attribute name="resourceFolder" />
