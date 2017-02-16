@@ -1,4 +1,7 @@
-/_*
+/lib/*
+/testLib/*
+/target/*
+
 /override.properties
 /.classpath
 /.project
