@@ -1,6 +1,7 @@
-/lib/*
-/testLib/*
-/target/*
+/lib
+/target
+/testLib
+/testTarget
 
 /override.properties
 /.classpath
