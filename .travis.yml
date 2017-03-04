@@ -17,8 +17,9 @@ cache:
     - $HOME/.m2
 
 before_install:
-  - git config user.name "$GITHUB_USER"
-  - git config user.email "$GITHUB_EMAIL"
+  - git config --global user.name "$GITHUB_USER"
+  - git config --global user.email "$GITHUB_EMAIL"
+  - git config --global push.default matching
 
   - wget https://github.com/pmeisen/tida-workspace/archive/master.zip -O /tmp/master.zip
   - unzip -o /tmp/master.zip -d ../
@@ -27,6 +28,7 @@ before_install:
   - mkdir -p $HOME/.m2
   - cd $HOME/.m2
   - find .
+  - echo https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2
   - if [ -d .git ]; then git pull; else rm -R *; git clone https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 .; fi
   - find .
   - cd $TRAVIS_BUILD_DIR
