@@ -18,6 +18,7 @@ before_install:
   - mkdir -p $HOME/.m2
   - cd $HOME/.m2
   - if [ -d .git ]; then git pull; else git clone https://github.com/pmeisen/tida-m2; fi
+  - find .
   - cd $TRAVIS_BUILD_DIR
 install: true
 
@@ -25,6 +26,7 @@ script: ant 03-run-test-suite 04-deploy
 
 after_success:
   - cd $HOME/.m2
+  - find .
   - git add -A
   - git commit
   - git push
