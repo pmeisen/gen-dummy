@@ -11,6 +11,7 @@ env:
     - secure: pqAWYm7YGnSkaBi/pqkclgiSF6k4++MaHSiKkuaZKzUB6c84cpkVP5pdKor2FTQph18KDoHVt8D+7BWU7RnwD8rjKvCR+diJ6j16Tk24fIOcoBx1BYbUiExGu4w6iZeDg+RpRplR02lUpxOkPOoUwxWKHwnWUFgS3ZaBT6MowkW+/Z5LvV8lALSLK83OcTgLy3v0y+hsz5t2WrS+BceVG4uek3bk+slpgQq5Otz6YBBXtUMEYwyNWOtBCl7pbCHG8WRQEXXLV8qZsg72Yw02fjGi9ripLbMBZgOQ5ysLwlBHlycTb6IecckPQ5RAxCmUg17vRhJrLrH1SZ2TXROB/uRcauTk8eUrsJBc8edsImeUt9RgnRpHmRTixNo+LaVI6aDDTtMIzRydb2+yyHLv3i1++GZ1Sibq6JRD9jwQ0yLgteHGHFWfeFrMWnoFxaxJKA1bwQPLm26T/9LuuSDlmr6ERUVZLfGMVcB9PN3wVODTQYzlBf9IiZWwryOabstK2SgiGmvu6xCGZTAEjUT3S2j3jJsFMn4HY5iSRcrRXeT5qllLDE9mBj1poa4gtnxvhjcrkQd0wOPZZ+LfhZPx9pyAeo93jEAUNC8ROjmnfNQj4gtvce+oEBjR0uBssKwyXKg3zVhj7xthYHfQziZN5sHcH9pVSFZdO2ma89q7y3k=
     - secure: Ul6nXXRuHrp4NrJn6Rki/wJI+lQRciLcYbpj9ASKz7lRztzWDlxAtCJzK7ermCV5Y+B1OELrtxXXgMdb5FW5eFGH95DgabjMyrYIZKzriNbjJQfdtpceR6/oFrXKrqyTUwjCFXYI4mocangjCkaTzmGJGW3qlzbz8T88QNrbHIlzLORL+h6ESBD5LC9v87bkmHuf1dqJU7o1oWyfBxhLAPXFWq04MYIrAUvvwaxVpKLwmudmaHKJvEgWu3FeCPhVXuoIzKBiIvr85cLp03QcW/IhAFTYxyVRAt6vm+jlTF/P3CN17ZQRMyyivHRrPuGYP2nINN4i6dMDOFcnMZDbhvcu4Skx4hAKItCPDkFJBDYLUd/jxsGCT1KzcrRPc1Q6D7GHAlacDb7NkW8bDkjOf0CWhN1pMYvs4fT6zA4i7a0xIOVksStLiTKl7PZ3j3NIlNAwgcyGoiE3mAxQlZAYoMRi1T9TnRhX3NGXDV4s6GIMd2qL+Aa3mfKIX4U6kNXUzo0LFyG5O4VHrbBNq4FUS2bHXZNKRZaOzE+/Zl75nOY67T6qkQHia/mq520KInVZTInbHSnQH4+N/Yt+FZCIpkGbrtm84YjzwxDetrVVICw5O/M35K3aBKESSYreQKY+sSq0LAKw8VEGL8/lgPyhmTunZ+CLVL0/+k/PUAAz6Wg=
     - secure: Vdc2Q0zQt9bsys7vvZpz+9a5Doyed3wO3T+5cS7jTHhfDuSgq7yHM0abmKbFgDQgQxdpXmLF1uGVlSsY478qBsFg7fYK0tMhd6dRrjnR43eWy1u120LkmwOGqt908hFt//Cpy5jppJYL3kqhKmmpYLMNMT71IrXZTnCueRTvMkXdbUstSJ78z1y4FvVdUSqMDfPuk4FxU97xq00r/8v9gU7ZSUpRbPMMcxbcF77HsW/NRnkunI2LYxMSFOGVAkUcuthHK9YT64jjm1Cntvn5wyWq082tQtEeXbWbDcbLxcnmBT5AII3RRbgo9GSNmf6yvcu6sIebTUo4hBdJdx73UJVvaI2lofevRxK2OsO9R6Kq/5UrXgfGOtCHplxHHQhWwS7B9lx4aLIYcL9PH3yOxFuT9ACimfxuBK3++6xyXnnLQuZQKCC0ai6aeg+ZdgOe7yYOEkFvGrfqMl/OhRhFR8bCThcb/n8lZIHFzrw5mlptAGwtvYuH7KAJlRsSOekLzh+MoQp1nXi9IsceGDP7Oh54P/vvS+DssnJpkt6FiE7EmPWBB7zvVIFQhEj6RPX829MgPKGpwg+ODNwkzw3ajDaXSazigRlQ6SFoZ/NRDwkW3E/5vU3Fgic74/sd9SHr+sNy70beoKnIYNcKLlr0FIA6WJz/ap+Bs45p/bgXEdk=
+    - GITHUB_URL=https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2
 
 cache:
   directories:
@@ -28,8 +29,7 @@ before_install:
   - mkdir -p $HOME/.m2
   - cd $HOME/.m2
   - find .
-  - echo https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2
-  - if [ -d .git ]; then git pull; else rm -R *; git clone https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 .; fi
+  - if [ -d .git ]; then git pull; else rm -R *; git clone $GITHUB_URL .; fi
   - find .
   - cd $TRAVIS_BUILD_DIR
 install: true
@@ -40,6 +40,6 @@ after_success:
   - cd $HOME/.m2
   - find .
   - git add .
-  - git commit
-  - git push
+  - git commit -m "Travis automated build $TRAVIS_BUILD_NUMBER ($TRAVIS_BUILD_ID)"
+  - git push $GITHUB_URL
   - cd $TRAVIS_BUILD_DIR
