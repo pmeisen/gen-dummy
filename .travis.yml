@@ -17,7 +17,8 @@ before_install:
 
   - mkdir -p $HOME/.m2
   - cd $HOME/.m2
-  - if [ -d .git ]; then git pull; else git clone https://github.com/pmeisen/tida-m2 .; fi
+  - find .
+  - if [ -d .git ]; then git pull; else rm -R *; git clone https://github.com/pmeisen/tida-m2 .; fi
   - find .
   - cd $TRAVIS_BUILD_DIR
 install: true
