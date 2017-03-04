@@ -19,7 +19,7 @@ before_install:
   - git config --global user.name "$GITHUB_USER"
   - git config --global user.email "$GITHUB_EMAIL"
   - git config --global push.default matching
-  - git config credential.helper store
+  - git config --global credential.helper store --file=$GITHUB_CREDENTIALS
 
   - touch $GITHUB_CREDENTIALS
   - echo https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 > $GITHUB_CREDENTIALS
