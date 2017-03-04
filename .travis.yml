@@ -27,7 +27,6 @@ before_install:
   - cd $MAVEN_M2
   - rm -R *
   - git clone $GITHUB_URL .
-  - find .
   - cd $TRAVIS_BUILD_DIR
 install: true
 
@@ -35,7 +34,6 @@ script: ant 03-run-test-suite 04-deploy
 
 after_success:
   - cd $MAVEN_M2
-  - find .
   - git add .
   - git commit -m "Travis automated build $TRAVIS_BUILD_NUMBER ($TRAVIS_BUILD_ID)"
   - git push $GITHUB_URL
