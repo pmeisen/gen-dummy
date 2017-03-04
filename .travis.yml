@@ -22,7 +22,7 @@ before_install:
   - git config credential.helper store
 
   - touch $GITHUB_CREDENTIALS
-  - https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 > $GITHUB_CREDENTIALS
+  - echo https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 > $GITHUB_CREDENTIALS
   - find ~
 
   - wget https://github.com/pmeisen/tida-workspace/archive/master.zip -O /tmp/master.zip
