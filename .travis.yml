@@ -23,7 +23,6 @@ before_install:
 
   - touch $GITHUB_CREDENTIALS
   - echo https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 > $GITHUB_CREDENTIALS
-  - cat $GITHUB_CREDENTIALS
 
   - wget https://github.com/pmeisen/tida-workspace/archive/master.zip -O /tmp/master.zip
   - unzip -o /tmp/master.zip -d ../
