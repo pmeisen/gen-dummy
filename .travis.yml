@@ -13,7 +13,7 @@ env:
     - secure: Vdc2Q0zQt9bsys7vvZpz+9a5Doyed3wO3T+5cS7jTHhfDuSgq7yHM0abmKbFgDQgQxdpXmLF1uGVlSsY478qBsFg7fYK0tMhd6dRrjnR43eWy1u120LkmwOGqt908hFt//Cpy5jppJYL3kqhKmmpYLMNMT71IrXZTnCueRTvMkXdbUstSJ78z1y4FvVdUSqMDfPuk4FxU97xq00r/8v9gU7ZSUpRbPMMcxbcF77HsW/NRnkunI2LYxMSFOGVAkUcuthHK9YT64jjm1Cntvn5wyWq082tQtEeXbWbDcbLxcnmBT5AII3RRbgo9GSNmf6yvcu6sIebTUo4hBdJdx73UJVvaI2lofevRxK2OsO9R6Kq/5UrXgfGOtCHplxHHQhWwS7B9lx4aLIYcL9PH3yOxFuT9ACimfxuBK3++6xyXnnLQuZQKCC0ai6aeg+ZdgOe7yYOEkFvGrfqMl/OhRhFR8bCThcb/n8lZIHFzrw5mlptAGwtvYuH7KAJlRsSOekLzh+MoQp1nXi9IsceGDP7Oh54P/vvS+DssnJpkt6FiE7EmPWBB7zvVIFQhEj6RPX829MgPKGpwg+ODNwkzw3ajDaXSazigRlQ6SFoZ/NRDwkW3E/5vU3Fgic74/sd9SHr+sNy70beoKnIYNcKLlr0FIA6WJz/ap+Bs45p/bgXEdk=
     - GITHUB_URL=https://github.com/pmeisen/tida-m2
     - GITHUB_CREDENTIALS=~/.git-credentials
-    - MAVEN_M2=$HOME/.m2
+    - MAVEN_M2=~/.m2
 
 before_install:
   - git config --global user.name "$GITHUB_USER"
@@ -23,7 +23,6 @@ before_install:
 
   - touch $GITHUB_CREDENTIALS
   - echo https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/pmeisen/tida-m2 > $GITHUB_CREDENTIALS
-  - find ~
 
   - wget https://github.com/pmeisen/tida-workspace/archive/master.zip -O /tmp/master.zip
   - unzip -o /tmp/master.zip -d ../
