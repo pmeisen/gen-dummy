@@ -5,6 +5,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+
 cache:
   directories:
     - $HOME/.m2
@@ -13,9 +14,18 @@ before_install:
   - wget https://github.com/pmeisen/tida-workspace/archive/master.zip -O /tmp/master.zip
   - unzip -o /tmp/master.zip -d ../
   - mv ../tida-workspace-master ../tida-workspace
+
+  - mkdir -p $HOME/.m2
+  - cd $HOME/.m2
+  - if [ -d .git ]; then git pull; else git clone https://github.com/pmeisen/tida-m2; fi
+  - cd $TRAVIS_BUILD_DIR
 install: true
 
 script: ant 03-run-test-suite 04-deploy
 
 after_success:
-    - find /home/travis/.m2/repository/net/meisen/general
+  - cd $HOME/.m2
+  - git add -A
+  - git commit
+  - git push
+  - cd $TRAVIS_BUILD_DIR
