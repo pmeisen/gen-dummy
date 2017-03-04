@@ -16,3 +16,6 @@ before_install:
 install: true
 
 script: ant 03-run-test-suite 04-deploy
+
+after_success:
+    - find /home/travis/.m2/repository/net/meisen/general
